@@ -71,4 +71,12 @@ public class Profesor extends Persona {
         }
         return res;
     }
+
+    public int getHoras() {
+        return horas;
+    }
+
+    public void setHoras(int horas) {
+        this.horas = horas;
+    }
 }

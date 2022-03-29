@@ -48,7 +48,8 @@ public class Alumno extends Persona {
             res += "\nEs un chico";
         }
         res+="\n"+super.getDireccion();
-        res+=""
+        res+="\n Accede al instituto desde "+this.tituloAcceso+" con una nota media de: "+ this.notaAcceso;
+        return res;
     }
 
 }
