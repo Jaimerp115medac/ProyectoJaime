@@ -54,14 +54,12 @@ public class Persona {
     public String toString() {
         String res;
         res = this.nombre + " - " + this.DNI;
-        res += "\n";
-        if (sexo) {
-            res += "Es una chica";
+        if (this.sexo) {
+            res += "\n Es una chica";
         } else {
-            res += "Es un chico";
+            res += "\n Es un chico";
         }
-        res += "\n";
-        res += this.direccion;
+        res += "\n" + this.direccion;
         return res;
     }
 
