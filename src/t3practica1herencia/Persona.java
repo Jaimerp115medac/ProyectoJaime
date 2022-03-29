@@ -15,7 +15,14 @@ public class Persona {
     }
 
     // Constructor copia
-    public Persona(Persona objPersona) {
+    public Persona(Persona cPersona) {
+        this.DNI=cPersona.DNI;
+        this.nombre=cPersona.nombre;
+        this.direccion=cPersona.direccion;
+        this.sexo=cPersona.sexo;
+    
+    
+    
     }
 
     public String getDireccion() {
