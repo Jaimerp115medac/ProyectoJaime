@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package t3practica1herencia;
 
-/**
- *
- * @author Jaime
- */
 public class Alumno extends Persona {
 
     private double notaAcceso;
@@ -47,8 +39,8 @@ public class Alumno extends Persona {
         } else {
             res += "\nEs un chico";
         }
-        res+="\n"+super.getDireccion();
-        res+=""
+        res += "\n" + super.getDireccion();
+        res += ""
     }
 
 }
