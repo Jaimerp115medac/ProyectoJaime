@@ -1,10 +1,11 @@
 package t3practica1herencia;
 
 public class Persona {
-  private String nombre;
+
+    private String nombre;
     private String direccion;
     private String DNI;
-    protected boolean sexo;//T femenino-F masculino
+    protected boolean sexo;//T=femenino F=masculino
 
     //Metodo constructor
     public Persona(String nombre, String direccion, String DNI, boolean sexo) {
@@ -15,9 +16,14 @@ public class Persona {
     }
 
     // Constructor copia
-    public Persona(Persona objPersona) {
+    public Persona(Persona cPersona) {
+        this.DNI = cPersona.DNI;
+        this.sexo = cPersona.sexo;
+        this.direccion = cPersona.direccion;
+        this.nombre = cPersona.nombre;
     }
 
+    // Getter y Setter Direccion
     public String getDireccion() {
         return direccion;
     }
@@ -26,6 +32,7 @@ public class Persona {
         this.direccion = direccion;
     }
 
+    //Getter y Setter DNI
     public String getDNI() {
         return DNI;
     }
@@ -34,6 +41,7 @@ public class Persona {
         this.DNI = DNI;
     }
 
+    //Getter y Setter nombre
     public String getNombre() {
         return nombre;
     }
@@ -58,5 +66,3 @@ public class Persona {
     }
 
 }
-
-
