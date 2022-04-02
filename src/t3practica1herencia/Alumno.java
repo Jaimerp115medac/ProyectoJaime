@@ -3,20 +3,20 @@ package t3practica1herencia;
 public class Alumno extends Persona {
 
     private double notaAcceso;
-    private String tituloAcceso;
+    private String Estudios;
 
     public Alumno(String nombre, String direccion, String DNI, boolean sexo, double notaAcceso, String estudios) {
         super(nombre, direccion, DNI, sexo);
 
-        switch (tituloAcceso) {
+        switch (estudios) {
             case "FP Medio":
             case "Bachillerato":
             case "Otros":
-                this.tituloAcceso = tituloAcceso;
+                this.Estudios = estudios;
                 break;
             default:
                 this.notaAcceso = 5;
-                this.tituloAcceso = "Otros";
+                this.Estudios = "Otros";
                 break;
 
         }
@@ -25,7 +25,7 @@ public class Alumno extends Persona {
             this.notaAcceso = notaAcceso;
         } else {
             this.notaAcceso = 5;
-            this.tituloAcceso = "Otros";   //Preguntar a jaime mañana
+            this.Estudios = "Otros"; 
         }
 
     }
@@ -40,7 +40,7 @@ public class Alumno extends Persona {
             res += "\nEs un chico";
         }
         res+="\n"+super.getDireccion();
-        res+="\n Accede al instituto desde "+this.tituloAcceso+" con una nota media de: "+ this.notaAcceso;
+        res+="\n Accede al instituto desde "+this.Estudios+" con una nota media de: "+ this.notaAcceso;
         return res;
     }
 
