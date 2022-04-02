@@ -48,6 +48,14 @@ public class Profesor extends Persona {
 
     }
 
+    public int getHoras() {
+        return horas;
+    }
+
+    public void setHoras(int horas) {
+        this.horas = horas;
+    }
+
     public String toString() {
         String res = "";
         res = super.getNombre() + " - " + super.getDNI();
@@ -73,11 +81,4 @@ public class Profesor extends Persona {
         return res;
     }
 
-    public int getHoras() {
-        return horas;
-    }
-
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
 }
