@@ -47,7 +47,7 @@ public class Asignatura {
 
     public void borrarAlumno(Alumno borrar) {   //Si hacer asi o devolviendo cadena
          for (int i = 0; i < listaAlumno.length; i++) {
-            if (this.listaAlumno[i] == borrar) {
+            if (this.listaAlumno[i] == borrar) { //Quizas esto esta mal
                 this.listaAlumno[i] = null;
                 System.out.println("Se ha eliminado el alumno con exito.");
             }
