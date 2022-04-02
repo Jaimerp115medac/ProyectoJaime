@@ -73,48 +73,8 @@ public class Asignatura {
         return codigo;
     }
 
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
     public int getHoras() {
         return horas;
-    }
-
-    public void setHoras(int horas) {
-        this.horas = horas;
-    }
-
-    public boolean isTroncal() {
-        return troncal;
-    }
-
-    public void setTroncal(boolean troncal) {
-        this.troncal = troncal;
-    }
-
-    public Profesor getProfesor() {
-        return profesor;
-    }
-
-    public void setProfesor(Profesor profesor) {
-        this.profesor = profesor;
-    }
-
-    public Alumno[] getListaAlumno() {
-        return listaAlumno;
-    }
-
-    public void setListaAlumno(Alumno[] listaAlumno) {
-        this.listaAlumno = listaAlumno;
     }
 
     public String toString() {
@@ -131,11 +91,13 @@ public class Asignatura {
         res += "Lista de alumnos matriculados:\n";
         res += "==========================\n";
         for (int i = 0; i < this.listaAlumno.length; i++) {
-            if (i == this.listaAlumno.length - 1) {
-                res += this.listaAlumno[i].toString() + "\n";
-            } else {
-                res += this.listaAlumno[i].toString() + "\n";
-                res += "-------------------------------------\n";
+            if (this.listaAlumno[i] != null) {
+                if ((i == this.listaAlumno.length - 1) || (this.listaAlumno[i + 1] == null)) {
+                    res += this.listaAlumno[i].toString() + "\n";
+                } else {
+                    res += this.listaAlumno[i].toString() + "\n";
+                    res += "-------------------------------------\n";
+                }
             }
         }
         return res;
