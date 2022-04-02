@@ -27,6 +27,7 @@ public class Profesor extends Persona {
                 break;
             default:
                 this.estudios = "FP Medio";
+                break;
         }
     }
 
