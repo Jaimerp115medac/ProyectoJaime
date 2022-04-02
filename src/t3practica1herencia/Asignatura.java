@@ -2,8 +2,7 @@ package t3practica1herencia;
 
 public class Asignatura {
 
-    private String codigoAsignatura;
-    private String nombreAsignatura;
+    private String codigoAsignatura, nombreAsignatura;
     private int horasAsignatura;
     private boolean troncalAsignatura;
     private Profesor profesorAsignatura;
@@ -46,7 +45,7 @@ public class Asignatura {
     }
 
     public void borrarAlumno(Alumno borrar) {   //Si hacer asi o devolviendo cadena
-         for (int i = 0; i < listaAlumno.length; i++) {
+        for (int i = 0; i < listaAlumno.length; i++) {
             if (this.listaAlumno[i] == borrar) { //Quizas esto esta mal
                 this.listaAlumno[i] = null;
                 System.out.println("Se ha eliminado el alumno con exito.");
@@ -55,23 +54,19 @@ public class Asignatura {
     }
 
     public boolean asignaturaCompleta() {
-         for (int i = 0; i < listaAlumno.length; i++) {
+        for (int i = 0; i < listaAlumno.length; i++) {
             if (this.listaAlumno[i] == null) {
                 return false;
             }
         }
         return true;
     }
-    
 
     public void cambiarProfesor(Profesor nuevo) {
         this.profesorAsignatura.setHoras(nuevo.getHoras() + this.horasAsignatura);
-        this.profesorAsignatura=nuevo;
-      
+        this.profesorAsignatura = nuevo;
 
 //Preguntar mañana sobre el constructor copia en este metodo
-        
-        
     }
 
     public String getCodigoAsignatura() {
