@@ -25,7 +25,7 @@ public class Alumno extends Persona {
             this.notaAcceso = notaAcceso;
         } else {
             this.notaAcceso = 5;
-            this.Estudios = "Otros"; 
+            this.Estudios = "Otros";
         }
 
     }
@@ -39,8 +39,8 @@ public class Alumno extends Persona {
         } else {
             res += "\nEs un chico";
         }
-        res+="\n"+super.getDireccion();
-        res+="\n Accede al instituto desde "+this.Estudios+" con una nota media de: "+ this.notaAcceso;
+        res += "\n" + super.getDireccion();
+        res += "\n Accede al instituto desde " + this.Estudios + " con una nota media de: " + this.notaAcceso;
         return res;
     }
 

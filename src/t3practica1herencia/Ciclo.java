@@ -23,6 +23,7 @@ public class Ciclo {
         for (int i = 0; i < Asignaturas.length; i++) {
             if (this.Asignaturas[i] == null) {
                 this.Asignaturas[i] = nueva;
+                this.numHoras += nueva.getHoras();
                 return "Se ha añadido la asignatura con exito.";
             }
         }
@@ -31,7 +32,7 @@ public class Ciclo {
 
     public boolean enCiclo(Asignatura asig) {
         for (int i = 0; i < Asignaturas.length; i++) {
-            if (this.Asignaturas[i].getCodigoAsignatura().equalsIgnoreCase(asig.getCodigoAsignatura())) {
+            if (this.Asignaturas[i].getCodigo().equalsIgnoreCase(asig.getCodigo())) {
                 return true;
             }
         }
@@ -40,8 +41,9 @@ public class Ciclo {
 
     public String eliminarAsignatura(Asignatura borrar) {
         for (int i = 0; i < Asignaturas.length; i++) {
-            if (this.Asignaturas[i].getCodigoAsignatura().equalsIgnoreCase(borrar.getCodigoAsignatura())) {
+            if (this.Asignaturas[i].getCodigo().equalsIgnoreCase(borrar.getCodigo())) {
                 this.Asignaturas[i] = null;
+                this.numHoras -= borrar.getHoras();
                 return "Se ha eliminado la asignatura con exito.";
             }
         }

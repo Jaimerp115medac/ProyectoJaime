@@ -2,10 +2,10 @@ package t3practica1herencia;
 
 public class Asignatura {
 
-    private String codigoAsignatura, nombreAsignatura;
-    private int horasAsignatura;
-    private boolean troncalAsignatura;
-    private Profesor profesorAsignatura;
+    private String codigo, nombre;
+    private int horas;
+    private boolean troncal;
+    private Profesor profesor;
     private Alumno listaAlumno[];
 
     public Asignatura(String nombre, String codigo, int horas, Profesor profe, int numMax) {
@@ -16,12 +16,12 @@ public class Asignatura {
             horas = 100;
         }
         listaAlumno = new Alumno[numMax]; //numMax siendo el numero maximo de alumnos que podemos meter en el array
-        this.codigoAsignatura = codigo;
-        this.nombreAsignatura = nombre;
-        this.horasAsignatura = horas;
-        this.profesorAsignatura = profe;
-        this.troncalAsignatura = true;
-        this.profesorAsignatura.setHoras(profe.getHoras() + this.horasAsignatura);
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.horas = horas;
+        this.profesor = profe;
+        this.troncal = true;
+        this.profesor.setHoras(profe.getHoras() + this.horas);
 
     }
 
@@ -29,28 +29,29 @@ public class Asignatura {
         for (int i = 0; i < listaAlumno.length; i++) {
             if (listaAlumno[i] == null) {
                 listaAlumno[i] = nuevo;
-                return "El alumno se ha añadido.";
-            }                                       // Preguntar mañana a jaime sobre si sale por pantalla y le vale asi
+                return "El alumno se ha añadido con exito.";
+            }
         }
         return "Error: El alumno no se ha podido añadir.";
     }
 
     public boolean estaMatriculado(Alumno alu) {
         for (int i = 0; i < listaAlumno.length; i++) {
-            if (listaAlumno[i] == alu) {
+            if (listaAlumno[i].getDNI().equalsIgnoreCase(alu.getDNI())) {
                 return true;
             }
         }
         return false;
     }
 
-    public void borrarAlumno(Alumno borrar) {   //Si hacer asi o devolviendo cadena
+    public String borrarAlumno(Alumno borrar) {
         for (int i = 0; i < listaAlumno.length; i++) {
-            if (this.listaAlumno[i] == borrar) { //Quizas esto esta mal
+            if (this.listaAlumno[i].getDNI().equalsIgnoreCase(borrar.getDNI())) {
                 this.listaAlumno[i] = null;
-                System.out.println("Se ha eliminado el alumno con exito.");
+                return "Se ha eliminado el alumno con exito.";
             }
         }
+        return "Error: no se ha podido eliminar el alumno.";
     }
 
     public boolean asignaturaCompleta() {
@@ -63,50 +64,49 @@ public class Asignatura {
     }
 
     public void cambiarProfesor(Profesor nuevo) {
-        this.profesorAsignatura.setHoras(nuevo.getHoras() + this.horasAsignatura);
-        this.profesorAsignatura = nuevo;
-
-//Preguntar mañana sobre el constructor copia en este metodo
+        this.profesor.setHoras(this.profesor.getHoras() - this.horas);
+        this.profesor = nuevo;
+        this.profesor.setHoras(nuevo.getHoras() + this.horas);
     }
 
-    public String getCodigoAsignatura() {
-        return codigoAsignatura;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoAsignatura(String codigoAsignatura) {
-        this.codigoAsignatura = codigoAsignatura;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getNombreAsignatura() {
-        return nombreAsignatura;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setNombreAsignatura(String nombreAsignatura) {
-        this.nombreAsignatura = nombreAsignatura;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public int getHorasAsignatura() {
-        return horasAsignatura;
+    public int getHoras() {
+        return horas;
     }
 
-    public void setHorasAsignatura(int horasAsignatura) {
-        this.horasAsignatura = horasAsignatura;
+    public void setHoras(int horas) {
+        this.horas = horas;
     }
 
-    public boolean isTroncalAsignatura() {
-        return troncalAsignatura;
+    public boolean isTroncal() {
+        return troncal;
     }
 
-    public void setTroncalAsignatura(boolean troncalAsignatura) {
-        this.troncalAsignatura = troncalAsignatura;
+    public void setTroncal(boolean troncal) {
+        this.troncal = troncal;
     }
 
-    public Profesor getProfesorAsignatura() {
-        return profesorAsignatura;
+    public Profesor getProfesor() {
+        return profesor;
     }
 
-    public void setProfesorAsignatura(Profesor profesorAsignatura) {
-        this.profesorAsignatura = profesorAsignatura;
+    public void setProfesor(Profesor profesor) {
+        this.profesor = profesor;
     }
 
     public Alumno[] getListaAlumno() {
@@ -117,4 +117,27 @@ public class Asignatura {
         this.listaAlumno = listaAlumno;
     }
 
+    public String toString() {
+        String res = "";
+        res = this.codigo + ": " + this.nombre + " - " + this.horas + " horas.\n";
+        if (this.troncal) {
+            res += "Es troncal.\n";
+        } else {
+            res += "No es troncal.\n";
+        }
+        res += "Profesor de la asignatura:\n";
+        res += "==========================\n";
+        res += this.profesor.toString() + "\n";
+        res += "Lista de alumnos matriculados:\n";
+        res += "==========================\n";
+        for (int i = 0; i < this.listaAlumno.length; i++) {
+            if (i == this.listaAlumno.length - 1) {
+                res += this.listaAlumno[i].toString() + "\n";
+            } else {
+                res += this.listaAlumno[i].toString() + "\n";
+                res += "-------------------------------------\n";
+            }
+        }
+        return res;
+    }
 }
