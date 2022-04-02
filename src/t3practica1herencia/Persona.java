@@ -52,7 +52,7 @@ public class Persona {
 
     @Override
     public String toString() {
-        String res;
+        String res = "";
         res = this.nombre + " - " + this.DNI;
         if (this.sexo) {
             res += "\n Es una chica";

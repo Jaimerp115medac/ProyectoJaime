@@ -48,7 +48,7 @@ public class Profesor extends Persona {
     }
 
     public String toString() {
-        String res;
+        String res = "";
         res = super.getNombre() + " - " + super.getDNI();
         if (super.sexo) {
             res += "\nEs una chica";
@@ -64,10 +64,10 @@ public class Profesor extends Persona {
             res += "Profesor";
         }
         res += " durante " + this.horas + " horas y cobra " + this.sueldo + "€";
-        if(this.ocupado){
-            res+="\nAhora mismo está dando clase";
-        }else{
-            res+="\nAhora mismo no está dando clase";
+        if (this.ocupado) {
+            res += "\nAhora mismo está dando clase";
+        } else {
+            res += "\nAhora mismo no está dando clase";
         }
         return res;
     }
